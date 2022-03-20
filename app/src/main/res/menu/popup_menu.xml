@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/ge100Mode"
+
+        android:title="GE-100 Mode"
+        android:titleCondensed="Navigate your option"
+        android:visible="true"/>
+    <item
+        android:id="@+id/showPlaces"
+
+        android:title="Show Places"
+        android:visible="true"/>
+    <item
+        android:id="@+id/options"
+
+        android:title="Options"
+        android:visible="true"/>
+    <item
+        android:id="@+id/item_about"
+
+        android:title="About"
+        android:visible="true"/>
+
+</menu>
