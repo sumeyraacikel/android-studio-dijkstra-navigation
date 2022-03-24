@@ -8,7 +8,7 @@
         <entry key="app/src/main/res/drawable/icon.xml" value="0.334" />
         <entry key="app/src/main/res/drawable/toolbar_find.xml" value="0.334" />
         <entry key="app/src/main/res/layout/about.xml" value="0.35625" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/ge100.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/open.xml" value="0.35625" />

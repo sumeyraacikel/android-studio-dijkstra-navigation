@@ -1,5 +1,11 @@
-<resources>
-    <string name="app_name">My Application1</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" tools:ignore="Typos">My Application1</string>
     <string name="google_maps_key">google_maps_key</string>
     <string name="choose_option">Choose Option</string>
+    <string name="karabuk_navigation">KARABUK NAVIGATION</string>
+    <string name="karabuk_navigation_application_is_a_product_of_gigafive_corporation_all_rigths_reserved">Karabuk Navigation Application is a product of GIGAFIVE Corporation. All Rigths Reserved</string>
+    <string name="show_places">Show Places</string>
+    <string name="ge_100_mode">GE-100 Mode</string>
+    <string name="options">Options</string>
+    <string name="about">About</string>
 </resources>

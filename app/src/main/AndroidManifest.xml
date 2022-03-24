@@ -12,21 +12,22 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission
-        android:name="org.apache.http.legacy"
+    <uses-permission android:name="org.apache.http.legacy"
         android:required="false" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication1">
+        android:theme="@style/Theme.MyApplication1"
+        android:usesCleartextTraffic="true">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyByP30cZPZstli2uxuhP_3CWvnTWQ_oKrA" />
+
         <activity
             android:name=".Splash"
             android:exported="true">
@@ -39,32 +40,30 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="BilkentNavigation"
+            android:label="MainActivity"
             tools:ignore="DuplicateActivity">
         </activity>
 
         <activity
             android:name=".ge100"
-            android:label="Bilkent Navigation"
+            android:label="Karabuk Navigation"
             android:parentActivityName=".MainActivity">
 
         </activity>
         <activity
             android:name=".about"
-            android:label="Bilkent Navigation"
+            android:label="Karabuk Navigation"
             android:parentActivityName=".MainActivity">
 
         </activity>
         <activity
             android:name=".option"
-            android:label="Bilkent Navigation"
+            android:label="Karabuk Navigation"
             android:parentActivityName=".ge100">
         </activity>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-
     </application>
 
 </manifest>

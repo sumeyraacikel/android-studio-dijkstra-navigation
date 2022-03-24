@@ -1,5 +1,7 @@
 package com.example.myapplication1;
 
+import static jxl.Workbook.getWorkbook;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -18,8 +20,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
 
-public class option<Cell, Workbook, Sheet> extends FragmentActivity
+public class option extends FragmentActivity
 {
     String option="";
 
@@ -56,14 +61,17 @@ public class option<Cell, Workbook, Sheet> extends FragmentActivity
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
+
+
     public String[][] readGeData(int a) {
         String[][] result=new String[0][0];
         a=1;
+
         try
         {
             AssetManager am = getAssets();
             InputStream is = am.open("Option1" + a + ".xls");
-            Workbook wb = Workbook.getWorkbook(is);
+            Workbook wb = getWorkbook(is);
             Sheet s = wb.getSheet(0);
             int row = s.getRows();
             int col = s.getColumns();
@@ -82,6 +90,8 @@ public class option<Cell, Workbook, Sheet> extends FragmentActivity
         }
         return result;
     }
+
+
     //    public void getGeDest() {
 //        String[][] data=readGeData(Integer.parseInt(option));
 //        Long current=System.currentTimeMillis();
@@ -108,6 +118,5 @@ public class option<Cell, Workbook, Sheet> extends FragmentActivity
         calendar.setTimeInMillis(System.currentTimeMillis());
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 10000, pendingIntent);
     }
-
 }
 

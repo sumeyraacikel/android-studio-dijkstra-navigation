@@ -1,5 +1,6 @@
 package com.example.myapplication1;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,14 +9,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 
 public class NotificationPublisher extends BroadcastReceiver {
-    //private final String SOMEACTION = "com.burak.alarm.ACTION";
+
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        generateNotification(context, "note");
+        generateNotification(context);
         String action = intent.getAction();
 //        if (SOMEACTION.equals(action)) {
 //            generateNotification(context,"note");
@@ -23,18 +26,18 @@ public class NotificationPublisher extends BroadcastReceiver {
     }
 
     @SuppressWarnings("deprecation")
-    private void generateNotification(Context context, String message) {
-        System.out.println(message+"++++++++++2");
+    private void generateNotification(@NonNull Context context) {
+        System.out.println("note" +"++++++++++2");
         int icon = R.drawable.icon;
-        long when = System.currentTimeMillis() + (1*60*1000);
+        long when = System.currentTimeMillis() + (60 * 1000);
         NotificationManager notificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = new Notification(icon, message, when);
+        Notification notification = new Notification(icon, "note", when);
         String title = context.getString(R.string.app_name);
         String subTitle = context.getString(R.string.app_name);
         Intent notificationIntent = new Intent(context, MainActivity.class);
-        notificationIntent.putExtra("content", message);
-        PendingIntent intent = PendingIntent.getActivity(context, 0,notificationIntent, 0);
+        notificationIntent.putExtra("content", "note");
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent intent = PendingIntent.getActivity(context, 0,notificationIntent, 0);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         Log.d("asda","fdfrs");

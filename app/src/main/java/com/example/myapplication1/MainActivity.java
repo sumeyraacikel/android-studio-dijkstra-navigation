@@ -1,17 +1,12 @@
 package com.example.myapplication1;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-import android.graphics.Point;
-import android.os.Bundle;
-import java.util.ArrayList;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -24,6 +19,12 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,11 +34,14 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 
 @SuppressWarnings({"ALL", "UnnecessaryParentheses"})
 
@@ -55,7 +59,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     boolean places;
     String[] orientOptions;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pointCreator();
@@ -63,7 +66,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         String[] products = pointTags();
         orientOptions = new String[13];
         lv = (ListView) findViewById(R.id.list_view);
-        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.product_name, products);
+        adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item, R.id.product_name, products);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -79,8 +82,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 lv.setVisibility(View.VISIBLE);
             }
 
-            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                          int arg3) {
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
             }
 
             public void afterTextChanged(Editable arg0) {
@@ -112,16 +114,16 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                         if (item.getItemId() == (R.id.showPlaces)) {
                             mMap.clear();
                             if (places == false) {
-                                mMap.addMarker(new MarkerOptions().title("Marmara Restarurant").position(new LatLng(39.87076202058893, 32.75043960660696)));
-                                mMap.addMarker(new MarkerOptions().title("CafeInn").position(new LatLng(39.869907449323705, 32.750478498637676)));
-                                mMap.addMarker(new MarkerOptions().title("Coffee Break").position(new LatLng(39.86943474152441, 32.75011774152517)));
-                                mMap.addMarker(new MarkerOptions().title("Express Cafe").position(new LatLng(39.86883954193255, 32.74950485676527)));
-                                mMap.addMarker(new MarkerOptions().title("Coffee Break").position(new LatLng(39.868212942748535, 32.74902977049351)));
-                                mMap.addMarker(new MarkerOptions().title("Starbucks").position(new LatLng(39.86733106225063, 32.75035947561264)));
-                                mMap.addMarker(new MarkerOptions().title("Cafe Alis").position(new LatLng(39.86710975401423, 32.75029040873051)));
-                                mMap.addMarker(new MarkerOptions().title("Express Cafe").position(new LatLng(39.86632847876406, 32.74922322481871)));
-                                mMap.addMarker(new MarkerOptions().title("Speed & Kıraç").position(new LatLng(39.8660330535252, 32.7485191449523)));
-                                mMap.addMarker(new MarkerOptions().title("Bilka").position(new LatLng(39.86456800347043, 32.74780835956335)));
+                                mMap.addMarker(new MarkerOptions().title("Nurmar").position(new LatLng(41.21848665838716, 32.66416805704746)));
+                                mMap.addMarker(new MarkerOptions().title("Stadyum").position(new LatLng(41.20990827723626, 32.655958182717086)));
+                                mMap.addMarker(new MarkerOptions().title("Esform").position(new LatLng(41.21704795782189, 32.66422218805145)));
+                                mMap.addMarker(new MarkerOptions().title("Meydan Halısaha").position(new LatLng(41.21713019796788, 32.65806971422245)));
+                                mMap.addMarker(new MarkerOptions().title("Tenis Kortu").position(new LatLng(41.21361472663, 32.655246846196555)));
+                                mMap.addMarker(new MarkerOptions().title("Yüzme Havuzu").position(new LatLng(41.21243304426529, 32.655362741361394)));
+                                mMap.addMarker(new MarkerOptions().title("KBÜ Park").position(new LatLng(41.209400016340474, 32.65657305665643)));
+                                mMap.addMarker(new MarkerOptions().title("Tren Park").position(new LatLng(41.207499575054555, 32.65669936238813 )));
+                                mMap.addMarker(new MarkerOptions().title("Çebioğlu Fitness&Spa").position(new LatLng(41.21867066330502, 32.64770458802791 )));
+                                mMap.addMarker(new MarkerOptions().title("Mackbear").position(new LatLng(41.21660561837982, 32.659217699706495)));
                                 places = true;
                             } else if (places == true) {
                                 places = false;
@@ -142,9 +144,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng bilkent = new LatLng(39.869950, 32.7489783);
-        Marker marker = mMap.addMarker(new MarkerOptions().position(bilkent));
-        assert marker != null;
+        LatLng karabuk = new LatLng(41.21148029321565, 32.656188059040595);
+        Marker marker = mMap.addMarker(new MarkerOptions().position(karabuk));
+        int SPLASH_TIME_OUT = 3000;
         marker.setVisible(true);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -156,7 +158,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mapSettings.setCompassEnabled(true);
         mapSettings.setMapToolbarEnabled(false);
         mapSettings.setRotateGesturesEnabled(true);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bilkent, 16));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(karabuk, 16));
 
         mMap.setOnCameraChangeListener(getCameraChangeListener());
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -177,13 +179,16 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
     }
+
+
+    @SuppressWarnings("SingleStatementInBlock")
     public void onSearch(View view) {
 
         String location = inputSearch.getText().toString().toLowerCase();
 
         if (location != null || !location.equals("")) {
             for (int i = 0; i < points.size(); i++) {
-                for (int j = 0; j < points.get(i).getName().size(); j++) {
+                for (int j = 0; j < points.get(i).getName().size(); j++)
                     if (points.get(i).getName().get(j).equals(location)) {
                         mMap.clear();
                         destination = new MarkerOptions();
@@ -195,7 +200,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                             //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(getNewZoom(), zoom));
                         }
                     }
-                }
             }
         }
     }
@@ -282,6 +286,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 }
                 name = name.substring(name.indexOf(",") + 1);
             }
+
             Log.d("tagnumber",tagNumber+"");
             double lat = Double.parseDouble(str_data.substring(0, str_data.indexOf("?")));
             str_data = str_data.substring(str_data.indexOf("?") + 1);
@@ -291,24 +296,21 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             Point point = new Point(tags, coordinate);
             points.add(point);
         }
-
-
     }
     public String[] pointTags() {
+
         String[] result = new String[tagNumber];
         int count = 0;
         for (int i = 0; i < points.size(); i++) {
-
             for (int j = 0; j < points.get(i).getName().size(); j++) {
-                if(!points.get(i).getName().get(j).contains("point"))
-                {result[count] = points.get(i).getName().get(j);
+                if(!points.get(i).getName().get(j).contains("point")) {
+                    result[count] = points.get(i).getName().get(j);
                     count++;
-                    Log.d("Count", count + "  " + points.get(i).getName().get(j));}
+                    Log.d("Count", count + " " + points.get(i).getName().get(j));
+                }
             }
         }
-        Log.d("COunt", (count - 1) + "");
+        Log.d("Count", (count - 1) + "");
         return result;
     }
-
-
 }

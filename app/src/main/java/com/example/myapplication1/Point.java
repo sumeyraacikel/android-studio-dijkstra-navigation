@@ -8,6 +8,8 @@ public class Point {
 
     private final LatLng coordinate;
     private final ArrayList<String> name;
+    public LatLng getName;
+
 
     public Point(ArrayList<String> n,LatLng l )
     {

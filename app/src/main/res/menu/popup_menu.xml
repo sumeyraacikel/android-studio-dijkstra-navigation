@@ -4,23 +4,23 @@
     <item
         android:id="@+id/ge100Mode"
 
-        android:title="GE-100 Mode"
+        android:title="@string/ge_100_mode"
         android:titleCondensed="Navigate your option"
         android:visible="true"/>
     <item
         android:id="@+id/showPlaces"
 
-        android:title="Show Places"
+        android:title="@string/show_places"
         android:visible="true"/>
     <item
         android:id="@+id/options"
 
-        android:title="Options"
+        android:title="@string/options"
         android:visible="true"/>
     <item
         android:id="@+id/item_about"
 
-        android:title="About"
+        android:title="@string/about"
         android:visible="true"/>
 
 </menu>
