@@ -238,6 +238,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
         return ret;
     }
+
     public LatLng getLoc() {
         LatLng result = new LatLng(0, 0);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
