@@ -259,7 +259,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return result;
     }
     public void pointCreator() {
-        String text = "points.txt"; //your text file name in the assets folder
+        String text = "points.txt";
         byte[] buffer = null;
         InputStream is;
         try {
